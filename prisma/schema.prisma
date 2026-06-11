@@ -44,7 +44,7 @@ model Giveaway {
   status         String          @default("active")
   hostId         String
   requiredRoleId String?
-  bonusRoles     Json            @default("[]")
+  bonusRoles     String          @default("[]")
   customMessage  String?
   winners        String          @default("[]")
   createdAt      DateTime        @default(now())
@@ -117,7 +117,7 @@ model UserProfile {
   level     Int       @default(0)
   balance   Int       @default(0)
   lastDaily DateTime?
-  inventory Json      @default("[]")
+  inventory String    @default("[]")
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
 
@@ -141,7 +141,7 @@ model Poll {
   channelId String
   messageId String    @unique
   question  String
-  options   Json
+  options   String
   endsAt    DateTime?
   ended     Boolean   @default(false)
   createdAt DateTime  @default(now())

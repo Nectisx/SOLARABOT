@@ -47,7 +47,7 @@ module.exports = {
           channelId: interaction.channelId,
           messageId: msg.id,
           question,
-          options: options.map((opt, i) => ({ label: opt, emoji: emojis[i], votes: [] })),
+          options: JSON.stringify(options.map((opt, i) => ({ label: opt, emoji: emojis[i], votes: [] }))),
         },
       });
     } catch (err) {
