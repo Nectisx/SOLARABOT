@@ -2,7 +2,7 @@
 const { SlashCommandBuilder, EmbedBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder } = require('discord.js');
 const { COLORS } = require('../../config/constants');
 
-const SHOP_URL = 'https://solvara.fr/';
+const SHOP_URL = 'https://westsky.fr/';
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -17,7 +17,7 @@ module.exports = {
 
     const embed = new EmbedBuilder()
       .setColor(COLORS.PRIMARY)
-      .setTitle('🛒 Shop SOLARA')
+      .setTitle('🛒 Shop WESTSKY')
       .setDescription(
         '**Retrouve tous nos articles, grades et avantages exclusifs sur notre boutique en ligne !**\n\n' +
         '> 🎖️ Grades & Rangs\n' +
@@ -25,7 +25,7 @@ module.exports = {
         '> 🎁 Packs spéciaux\n\n' +
         `**🔗 [Accéder au shop](${SHOP_URL})**`
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     const row = new ActionRowBuilder().addComponents(

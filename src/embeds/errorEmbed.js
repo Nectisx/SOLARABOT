@@ -11,7 +11,7 @@ function errorEmbed(title, description) {
     .setColor(COLORS.DANGER)
     .setTitle(`❌ ${title}`)
     .setDescription(description)
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 

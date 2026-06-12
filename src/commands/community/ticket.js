@@ -52,7 +52,7 @@ module.exports = {
           '**Catégories disponibles :**\n' +
           TICKET_CATEGORIES.map(c => `${c.emoji} **${c.label.split(' ').slice(1).join(' ')}** — ${c.description}`).join('\n')
         )
-        .setFooter({ text: `⚔️ SOLARA • ${date}` })
+        .setFooter({ text: `⚔️ WESTSKY • ${date}` })
         .setTimestamp();
 
       const row = ticketPanelSelectRow();

@@ -27,6 +27,7 @@ model GuildConfig {
   rglRoleId           String?
   rankChannelId       String?
   rankMessageId       String?
+  levelChannelId      String?
   rglMode             String   @default("button")
   prefix              String   @default("!")
   language            String   @default("fr")

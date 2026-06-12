@@ -53,6 +53,6 @@ module.exports = {
     DMALL_DELAY:      1500,
     WARN_BEFORE_BAN:  3,
   },
-  BOT_NAME:    '⚔️ SOLARA',
+  BOT_NAME:    '⚔️ WestSky',
   BOT_VERSION: '1.0.0',
 };

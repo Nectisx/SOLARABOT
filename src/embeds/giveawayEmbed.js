@@ -33,7 +33,7 @@ function buildGiveawayEmbed(giveaway, entriesCount = 0, userTickets = null) {
       (giveaway.requiredRoleId ? `\n🔒 **Rôle requis :** <@&${giveaway.requiredRoleId}>\n` : '') +
       `━━━━━━━━━━━━━━━━━━━━━━━`
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date} • ID: ${giveaway.id}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date} • ID: ${giveaway.id}` })
     .setTimestamp(new Date(giveaway.endsAt));
 
   return embed;
@@ -53,7 +53,7 @@ function buildGiveawayEndedEmbed(giveaway, winners) {
       `👑 **${winners.length > 1 ? 'Gagnants' : 'Gagnant'} :** ${winners.length > 0 ? winners.map(w => `<@${w}>`).join(', ') : 'Aucun gagnant (pas assez de participants)'}\n` +
       `━━━━━━━━━━━━━━━━━━━━━━━`
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 

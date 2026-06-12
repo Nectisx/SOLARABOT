@@ -23,7 +23,7 @@ module.exports = {
       .setTitle(`⚠️ Avertissements — ${targetUser.tag}`)
       .setDescription(warns.map((w, i) => `**${i + 1}.** ${w.reason} — par <@${w.modId}> — <t:${Math.floor(new Date(w.createdAt).getTime() / 1000)}:R>`).join('\n'))
       .setThumbnail(targetUser.displayAvatarURL({ dynamic: true }))
-      .setFooter({ text: `⚔️ SOLARA • ${date}` });
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` });
     await interaction.reply({ embeds: [embed], ephemeral: true });
   },
 };

@@ -281,7 +281,7 @@ async function handleGiveawayParticipants(interaction, giveawayId, page) {
       .setTitle(`👥 Participants — ${giveaway.prize}`)
       .setDescription(list)
       .addFields({ name: '📊 Total', value: `**${total}** participant(s)`, inline: true })
-      .setFooter({ text: `⚔️ SOLARA • ${date} • Page ${safePage + 1}/${totalPages}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date} • Page ${safePage + 1}/${totalPages}` })
       .setTimestamp();
 
     const navRow = participantsNavRow(giveawayId, safePage, totalPages);
@@ -402,9 +402,24 @@ async function handleTicketModal(interaction, client) {
   await interaction.deferReply({ ephemeral: true });
 
   try {
-    const config = await prisma.guildConfig.findUnique({ where: { guildId: interaction.guildId } });
-    if (!config?.ticketCategoryId) {
-      return interaction.editReply({ content: '⚠️ La catégorie tickets n\'est pas configurée. Un admin doit faire `/config set ticket_category`.' });
+    let config = await prisma.guildConfig.findUnique({ where: { guildId: interaction.guildId } });
+
+    // Créer automatiquement la catégorie Discord "🎫 Tickets" si elle n'existe pas encore
+    let ticketCategoryId = config?.ticketCategoryId;
+    if (!ticketCategoryId) {
+      const discordCategory = await interaction.guild.channels.create({
+        name: '🎫 Tickets',
+        type: ChannelType.GuildCategory,
+        permissionOverwrites: [
+          { id: interaction.guildId, deny: [PermissionFlagsBits.ViewChannel] },
+        ],
+      });
+      ticketCategoryId = discordCategory.id;
+      config = await prisma.guildConfig.upsert({
+        where: { guildId: interaction.guildId },
+        update: { ticketCategoryId },
+        create: { guildId: interaction.guildId, ticketCategoryId },
+      });
     }
 
     const existing = await prisma.ticket.findFirst({
@@ -427,7 +442,7 @@ async function handleTicketModal(interaction, client) {
     const channel = await interaction.guild.channels.create({
       name: channelName,
       type: ChannelType.GuildText,
-      parent: config.ticketCategoryId,
+      parent: ticketCategoryId,
       permissionOverwrites: permOverwrites,
     });
 
@@ -442,7 +457,7 @@ async function handleTicketModal(interaction, client) {
         { name: '📋 Problème', value: problem, inline: false },
         { name: '📸 Preuve', value: hasProof, inline: true },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     const closeRow = ticketCloseRow();

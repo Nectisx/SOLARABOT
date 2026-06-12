@@ -28,7 +28,7 @@ module.exports = {
         { name: '📥 Rejoint le', value: member ? `<t:${Math.floor(member.joinedTimestamp / 1000)}:D>` : 'N/A', inline: true },
         { name: `🎭 Rôles (${member?.roles.cache.size - 1 || 0})`, value: roles || 'Aucun', inline: false },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     if (member?.nickname) embed.addFields({ name: '📝 Surnom', value: member.nickname, inline: true });

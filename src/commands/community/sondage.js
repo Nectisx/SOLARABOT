@@ -31,7 +31,7 @@ module.exports = {
       .setColor(COLORS.PRIMARY)
       .setTitle(`📊 ${question}`)
       .setDescription(options.map((opt, i) => `${emojis[i]} **${opt}**`).join('\n\n'))
-      .setFooter({ text: `⚔️ SOLARA • ${date} • Par ${interaction.user.tag}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date} • Par ${interaction.user.tag}` })
       .setTimestamp();
 
     const msg = await interaction.reply({ embeds: [embed], fetchReply: true });

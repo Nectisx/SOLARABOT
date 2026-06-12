@@ -28,7 +28,7 @@ module.exports = {
       .setDescription(content)
       .setAuthor({ name: interaction.user.tag, iconURL: interaction.user.displayAvatarURL({ dynamic: true }) })
       .addFields({ name: '📊 Statut', value: '⏳ En attente' })
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     const msg = await channel.send({ embeds: [embed] });

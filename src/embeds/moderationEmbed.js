@@ -69,7 +69,7 @@ function buildModEmbed(action, moderator, target, reason, extra = {}) {
       { name: '🛡️ Modérateur', value: `${moderator.tag || moderator.user?.tag || 'Système'} (${moderator.id})`, inline: true },
       { name: '📝 Raison', value: reason || 'Aucune raison fournie', inline: false },
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 
   if (extra.duration) embed.addFields({ name: '⏱️ Durée', value: extra.duration, inline: true });

@@ -73,21 +73,6 @@ const categories = {
     ],
     perms: 'Manage Guild',
   },
-  music: {
-    label: '🎵 Musique',
-    color: COLORS.ACCENT,
-    description: 'Lecteur musical intégré pour diffuser de la musique.',
-    commands: [
-      { name: '/play', desc: 'Jouer une musique ou une URL' },
-      { name: '/pause / /resume', desc: 'Pause / reprendre' },
-      { name: '/skip', desc: 'Passer à la prochaine' },
-      { name: '/queue', desc: 'Voir la file d\'attente' },
-      { name: '/nowplaying', desc: 'Morceau en cours' },
-      { name: '/volume', desc: 'Régler le volume' },
-      { name: '/loop', desc: 'Mode boucle' },
-    ],
-    perms: 'Connect, Speak (salon vocal)',
-  },
   admin: {
     label: '⚙️ Administration',
     color: COLORS.DEEP,
@@ -110,7 +95,8 @@ const categories = {
       { name: '/sondage', desc: 'Créer un sondage' },
       { name: '/suggestion', desc: 'Soumettre une suggestion' },
       { name: '/ticket', desc: 'Ouvrir un ticket de support' },
-      { name: '/level', desc: 'Voir son niveau' },
+      { name: '/level voir', desc: 'Voir son niveau' },
+      { name: '/level setup', desc: 'Configurer le salon de notifications de niveau' },
       { name: '/rank', desc: 'Classement XP' },
     ],
     perms: 'Selon la commande',
@@ -124,13 +110,13 @@ function buildMainMenuEmbed() {
   });
   return new EmbedBuilder()
     .setColor(COLORS.PRIMARY)
-    .setTitle('⚔️ SOLARA — Menu Principal')
+    .setTitle('⚔️ WESTSKY — Menu Principal')
     .setDescription(
-      'Bienvenue dans le panneau de commande du **SOLARA** !\n\n' +
+      'Bienvenue dans le panneau de commande du **WESTSKY** !\n\n' +
       'Utilise le menu déroulant ci-dessous pour explorer les différentes catégories de commandes.\n\n' +
       Object.values(categories).map(c => `${c.label}`).join(' • ')
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 
@@ -152,7 +138,7 @@ function buildCategoryEmbed(categoryKey) {
       },
       { name: '🔐 Permissions requises', value: cat.perms },
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 

@@ -26,7 +26,7 @@ module.exports = {
         { name: '📅 Créé le', value: `<t:${Math.floor(role.createdTimestamp / 1000)}:D>`, inline: true },
         { name: '🤖 Géré', value: role.managed ? 'Oui (intégration)' : 'Non', inline: true },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     await interaction.reply({ embeds: [embed] });

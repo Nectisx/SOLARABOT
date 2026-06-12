@@ -60,7 +60,7 @@ function buildLeaderboardEmbed(entries, guildName, guildIcon) {
           ).join('\n')
     )
     .setThumbnail(guildIcon || null)
-    .setFooter({ text: `⚔️ SOLARA • ${date} • Mise à jour automatique` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date} • Mise à jour automatique` })
     .setTimestamp();
 }
 

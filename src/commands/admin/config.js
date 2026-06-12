@@ -50,7 +50,7 @@ module.exports = {
           { name: '💡 Suggestions', value: config.suggestionChannelId ? `<#${config.suggestionChannelId}>` : 'Non configuré', inline: true },
           { name: '🚨 Signalements', value: config.reportChannelId ? `<#${config.reportChannelId}>` : 'Non configuré', inline: true },
         )
-        .setFooter({ text: `⚔️ SOLARA • ${date}` });
+        .setFooter({ text: `⚔️ WESTSKY • ${date}` });
       await interaction.reply({ embeds: [embed], ephemeral: true });
     }
 

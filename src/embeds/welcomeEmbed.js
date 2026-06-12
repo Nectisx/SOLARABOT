@@ -19,7 +19,7 @@ function buildWelcomeEmbed(member, inviter, inviterStats, memberCount) {
       `━━━━━━━━━━━━━━━━━━━━━━━`
     )
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 
@@ -36,7 +36,7 @@ function buildLeaveEmbed(member, memberCount) {
       `🏰 **Membres restants :** ${memberCount}`
     )
     .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 

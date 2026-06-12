@@ -37,7 +37,7 @@ module.exports = {
           { name: '📊 Stats invitations', value: `${inviteStats.length}`, inline: true },
           { name: '🎁 Giveaways', value: `${giveaways.length}`, inline: true },
         )
-        .setFooter({ text: `⚔️ SOLARA • ${date}` });
+        .setFooter({ text: `⚔️ WESTSKY • ${date}` });
       await interaction.editReply({ embeds: [embed], files: [attachment] });
     } catch (err) {
       logger.error(`backup: ${err.message}`);

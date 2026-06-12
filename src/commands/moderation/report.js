@@ -37,7 +37,7 @@ module.exports = {
         { name: '📍 Salon', value: `<#${interaction.channelId}>` },
       )
       .setThumbnail(targetUser.displayAvatarURL({ dynamic: true }))
-      .setFooter({ text: `⚔️ SOLARA • ${date}` });
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` });
 
     await channel.send({ embeds: [embed] });
     await interaction.reply({ embeds: [successEmbed('Signalement envoyé', 'Ton signalement a été transmis à l\'équipe de modération.')], ephemeral: true });

@@ -35,7 +35,7 @@ module.exports = {
         { name: '🚀 Boosts', value: `${guild.premiumSubscriptionCount} (Niveau ${guild.premiumTier})`, inline: true },
         { name: '🔒 Vérification', value: `Niveau ${guild.verificationLevel}`, inline: true },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     if (guild.bannerURL()) embed.setImage(guild.bannerURL({ dynamic: true }));

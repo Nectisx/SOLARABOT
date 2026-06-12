@@ -27,7 +27,7 @@ module.exports = {
         .setImage(meme.url)
         .setURL(meme.postLink)
         .addFields({ name: '⬆️ Upvotes', value: `${meme.ups}`, inline: true })
-        .setFooter({ text: `⚔️ SOLARA • ${date} • r/${meme.subreddit}` });
+        .setFooter({ text: `⚔️ WESTSKY • ${date} • r/${meme.subreddit}` });
 
       await interaction.editReply({ embeds: [embed] });
     } catch (err) {

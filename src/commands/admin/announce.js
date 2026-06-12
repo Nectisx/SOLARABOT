@@ -30,7 +30,7 @@ module.exports = {
           .setColor(COLORS.PRIMARY)
           .setTitle('📢 Annonce')
           .setDescription(message)
-          .setFooter({ text: `⚔️ SOLARA • ${date} • Par ${interaction.user.tag}` })
+          .setFooter({ text: `⚔️ WESTSKY • ${date} • Par ${interaction.user.tag}` })
           .setTimestamp();
         await channel.send({ content: mention ? mention.toString() : undefined, embeds: [embed] });
       } else {

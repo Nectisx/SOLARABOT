@@ -55,7 +55,7 @@ module.exports = {
         .setColor(COLORS.PRIMARY)
         .setTitle(`📜 ${titre}`)
         .setDescription(texte)
-        .setFooter({ text: `⚔️ SOLARA • ${date}` })
+        .setFooter({ text: `⚔️ WESTSKY • ${date}` })
         .setTimestamp();
 
       let msg;
@@ -94,7 +94,7 @@ module.exports = {
           .setColor(COLORS.PRIMARY)
           .setTitle(oldEmbed?.title || '📜 Règlement')
           .setDescription(newTexte)
-          .setFooter({ text: `⚔️ SOLARA • ${date}` })
+          .setFooter({ text: `⚔️ WESTSKY • ${date}` })
           .setTimestamp();
         await msg.edit({ embeds: [newEmbed] });
         await interaction.reply({ embeds: [successEmbed('Règlement modifié', 'Le texte du règlement a été mis à jour.')], ephemeral: true });
@@ -121,7 +121,7 @@ module.exports = {
           { name: '🎭 Rôle', value: config?.rglRoleId ? `<@&${config.rglRoleId}>` : 'Non configuré', inline: true },
           { name: '🔘 Mode', value: config?.rglMode || 'button', inline: true },
         )
-        .setFooter({ text: `⚔️ SOLARA • ${date}` });
+        .setFooter({ text: `⚔️ WESTSKY • ${date}` });
       await interaction.reply({ embeds: [embed], ephemeral: true });
     }
   },

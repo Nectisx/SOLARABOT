@@ -34,7 +34,7 @@ module.exports = {
         { name: '📦 Inventaire', value: `${inventory.length} objet(s)`, inline: true },
         { name: '📅 Rejoint le', value: member ? `<t:${Math.floor(member.joinedTimestamp / 1000)}:D>` : 'N/A', inline: true },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` })
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` })
       .setTimestamp();
 
     await interaction.reply({ embeds: [embed] });

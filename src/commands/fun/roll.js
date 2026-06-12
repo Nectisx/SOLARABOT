@@ -14,7 +14,7 @@ module.exports = {
     const date = new Date().toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit' });
 
     if (!match) {
-      const embed = new EmbedBuilder().setColor(COLORS.DANGER).setTitle('❌ Format invalide').setDescription('Utilise le format **NdX** (ex: `2d6`, `1d20`, `3d8`)').setFooter({ text: `⚔️ SOLARA • ${date}` });
+      const embed = new EmbedBuilder().setColor(COLORS.DANGER).setTitle('❌ Format invalide').setDescription('Utilise le format **NdX** (ex: `2d6`, `1d20`, `3d8`)').setFooter({ text: `⚔️ WESTSKY • ${date}` });
       return interaction.reply({ embeds: [embed], ephemeral: true });
     }
 
@@ -30,7 +30,7 @@ module.exports = {
         { name: '🎯 Résultats', value: rolls.join(', '), inline: true },
         { name: '∑ Total', value: `**${total}**`, inline: true },
       )
-      .setFooter({ text: `⚔️ SOLARA • ${date}` });
+      .setFooter({ text: `⚔️ WESTSKY • ${date}` });
 
     await interaction.reply({ embeds: [embed] });
   },

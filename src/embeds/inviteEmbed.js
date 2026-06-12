@@ -20,7 +20,7 @@ function buildInviteStatsEmbed(user, stats) {
       { name: '🚪 Parties', value: `${stats.left}`, inline: true },
       { name: '🎁 Bonus', value: `${stats.bonus}`, inline: true },
     )
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 
@@ -43,7 +43,7 @@ function buildInviteLeaderboardEmbed(guild, entries) {
     .setTitle(`${EMOJIS.INVITES} Classement des Invitations — ${guild.name}`)
     .setDescription(description)
     .setThumbnail(guild.iconURL({ dynamic: true }))
-    .setFooter({ text: `⚔️ SOLARA • ${date}` })
+    .setFooter({ text: `⚔️ WESTSKY • ${date}` })
     .setTimestamp();
 }
 

@@ -53,6 +53,11 @@ module.exports = {
 
     client.user.setActivity('⚔️ /menu pour commencer', { type: ActivityType.Playing });
 
+    // Renommer le bot si nécessaire
+    if (client.user.username !== 'WestSky') {
+      client.user.setUsername('WestSky').catch(err => logger.warn(`Rename bot: ${err.message}`));
+    }
+
     // Déploiement automatique des slash commands
     await deployCommands(client);
 
