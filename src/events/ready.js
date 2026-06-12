@@ -51,13 +51,12 @@ module.exports = {
     logger.info(`✅ Bot connecté en tant que ${client.user.tag}`);
     logger.info(`📡 Sur ${client.guilds.cache.size} serveur(s)`);
 
-    client.user.setActivity('⚔️ /menu pour commencer', { type: ActivityType.Playing });
+    client.user.setActivity('PLAY.WESTSKY.FR', { type: ActivityType.Playing });
 
     // Renommer le bot et mettre à jour la bio si nécessaire
     if (client.user.username !== 'WestSky') {
       client.user.setUsername('WestSky').catch(err => logger.warn(`Rename bot: ${err.message}`));
     }
-    client.user.edit({ bio: 'PLAY.WESTSKY.FR' }).catch(err => logger.warn(`Bio bot: ${err.message}`));
 
     // Déploiement automatique des slash commands
     await deployCommands(client);
