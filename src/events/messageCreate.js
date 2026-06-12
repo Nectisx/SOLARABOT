@@ -1,6 +1,7 @@
 // src/events/messageCreate.js
 const logger = require('../utils/logger');
 const { checkSpam } = require('../moderation/antiSpam');
+const { checkAntiPub, checkAntiInsult, isBypassed, applyAutoMute } = require('../moderation/automod');
 const { addXp, refreshLeaderboardMessage } = require('../services/levelService');
 const { EmbedBuilder } = require('discord.js');
 const { COLORS } = require('../config/constants');
@@ -15,18 +16,34 @@ module.exports = {
   async execute(message, client) {
     if (message.author.bot || !message.guild) return;
 
-    // Anti-spam
+    // ── AutoMod ────────────────────────────────────────────────────
+    // Anti-pub (prioritaire — si pub détectée, on s'arrête là)
+    if (await checkAntiPub(message)) return;
+
+    // Anti-insulte
+    if (await checkAntiInsult(message)) return;
+
+    // Anti-spam : si spam détecté et membre non bypassé → mute 5 min
     if (checkSpam(message)) {
       try {
-        await message.delete().catch(() => {});
-        const warn = await message.channel.send({ content: `⚠️ ${message.author}, ralentis ! Tu envoies trop de messages.` });
-        setTimeout(() => warn.delete().catch(() => {}), 5000);
+        if (!(await isBypassed(message))) {
+          await message.delete().catch(() => {});
+          await applyAutoMute(message, 'Spam de messages');
+          const warn = await message.channel.send({
+            content: `⚠️ ${message.author}, tu envoies trop de messages ! Tu as été mis en sourdine **5 minutes**.`,
+          }).catch(() => null);
+          if (warn) setTimeout(() => warn.delete().catch(() => {}), 8000);
+          return;
+        } else {
+          // Bypass : supprime juste le message spam sans muter
+          await message.delete().catch(() => {});
+        }
       } catch (err) {
         logger.warn(`Anti-spam: ${err.message}`);
       }
     }
 
-    // XP (une fois par minute par utilisateur)
+    // ── XP (une fois par minute par utilisateur) ───────────────────
     const xpKey = `${message.guild.id}_${message.author.id}`;
     const now = Date.now();
     if (!XP_COOLDOWN.has(xpKey) || now - XP_COOLDOWN.get(xpKey) > 60000) {
@@ -69,7 +86,6 @@ async function sendLevelUpNotification(client, message, profile) {
       }
     }
 
-    // Fallback : envoyer dans le salon du message, auto-supprimé après 10s
     const msg = await message.channel.send({ embeds: [embed] }).catch(() => null);
     if (msg) setTimeout(() => msg.delete().catch(() => {}), 10000);
   } catch (err) {
