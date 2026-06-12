@@ -1,8 +1,7 @@
 // src/events/messageCreate.js
 const logger = require('../utils/logger');
 const { checkSpam } = require('../moderation/antiSpam');
-const { addXp } = require('../services/levelService');
-const prisma = require('../database/prisma');
+const { addXp, refreshLeaderboardMessage } = require('../services/levelService');
 
 const XP_PER_MESSAGE = 10;
 const XP_COOLDOWN = new Map();
@@ -36,6 +35,8 @@ module.exports = {
             content: `🎉 Félicitations ${message.author} ! Tu es maintenant niveau **${profile.level}** !`,
           }).then(msg => setTimeout(() => msg.delete().catch(() => {}), 10000)).catch(() => {});
         }
+        // Mise à jour du classement live (debounce 2 min intégré dans levelService)
+        refreshLeaderboardMessage(client, message.guild.id).catch(() => {});
       } catch (err) {
         logger.debug(`XP error: ${err.message}`);
       }
